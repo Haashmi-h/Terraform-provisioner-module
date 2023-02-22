@@ -1,3 +1,12 @@
+#basic project name and region:
+variable "project" {
+  default     = "webhost"
+  description = "project name"
+}
+variable "environment" {
+  default     = "production"
+  description = "project environment"
+}
 variable "region" {
   default     = "ap-south-1"
   description = "region at which this is implemented"
@@ -15,4 +24,10 @@ variable "instance_ami" {
 }
 variable "instance_type" {
   default = "t2.micro"
+}
+locals {
+  common_tags = {
+    "project"     = var.project
+    "environemnt" = var.environment
+  }
 }
